@@ -34,4 +34,4 @@ def topk_accuracy(emb_a, emb_b, k=10):
     _, topk_indices = torch.topk(F.cosine_similarity(emb_b[i], emb_a), k)
     if i in topk_indices.tolist():
       correct_b += 1
-  return correct_a / sim_matrix.size(0), correct_b / sim_matrix.size(1)
+  return correct_a / emb_a.size(0), correct_b / emb_b.size(0)
